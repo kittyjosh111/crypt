@@ -3,9 +3,13 @@ Python version of Crypt (iOS Shortcut).
 
 The iOS shortcut equivalent for this script may be found on routinehub [https://routinehub.co/shortcut/10927/].
 
+## Usage
+Download the script. Run python3 script.py in a terminal. Follow the prompts given. If you want to pass in a text file to encrypt, use the ```-i``` flag.
+
+## About
 This script is meant to provide a sort of encryption for simple messages. Say you want to send someone a text message without someone else being able to read it. You can use this shortcut to send a string of numbers containing the message.
 
-This shortcut was based off of the concept of OTP (One Time Pad), so each letter of message is randomly altered; this shortcut uses simple math. As I have not extensively studied encryption methods, I could be completely wrong about OTP. The shortcut seems to work anyway.
+This shortcut was based off of the concept of OTP (One Time Pad), so each letter of message is randomly altered; this shortcut uses addition. As I have not extensively studied encryption methods, I could be completely wrong about OTP. The shortcut seems to work anyway.
 
 The TLDR of the mechanism:
 
@@ -15,9 +19,8 @@ The TLDR of the mechanism:
 
 - Randomly generate number as key
 
-- Multiply said random key with aforementioned number
+- Add said random key to aforementioned number
 
-- Implementation of shared key, derived from previous work and concepts of my shortcut “Encrypt”. The key generated from the shortcut cannot decrypt correctly without the use of a shared and preset numeric key. This was implemented to enhance key security.
 
 ## Example
 For example, let's encrypt the string "hello". The shortcut will split each letter apart, creating a list of 
@@ -40,7 +43,7 @@ Each character is then converted to ASCII, which becomes
 111
 ```
 
-For each number, a random "key" is generated, which is a random integer from 2 to 350. The shared private key is multiplied to that random number to create a final key, wihch is then multiplied to the number in the ASCII list. If for example our keys were generated as 
+For each number, a random "key" is generated, which is a random integer from 2 to 750, wihch is then added to the number in the ASCII list. If for example our keys were generated as 
 
 ```
 1
@@ -53,18 +56,26 @@ For each number, a random "key" is generated, which is a random integer from 2 t
 and the shared key was 2, then our final encrypted message is:
 
 ```
-104 * 1 * 2 = 208
-101 * 2 * 2 = 404
-105 * 1 * 2 = 210
-105 * 3 * 2 = 630
-111 * 4 * 2 = 888
+104 + 1 = 105
+101 + 2 = 103
+105 + 1 = 106
+105 + 3 = 108
+111 + 4 = 115
 ```
 
 Then the encrypted message and the key are combined with colons and exported.
 
 ```
-encrypted message = 208:404:210:630:888
-final key = 2:4:2:6:8
+encrypted message = 105:103:106:108:115
+final key = 1:2:1:3:4
 ```
 
 To decrypt, run the process in reverse.
+
+```
+105 - 1 = 104 = h
+103 - 2 = 101 = e
+106 - 1 = 105 = l
+108 - 3 = 105 = l
+115 - 4 = 111 = o
+```
