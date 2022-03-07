@@ -1,10 +1,10 @@
-## crypt
-Python version of Crypt (iOS Shortcut).
+## Crypt
+Python version of Crypt (iOS Shortcut), a OTP concept.
 
 The iOS shortcut equivalent for this script may be found on routinehub [https://routinehub.co/shortcut/10927/].
 
 ## Usage
-Download the script. Run python3 script.py in a terminal. Follow the prompts given. If you want to pass in a text file to encrypt, use the ```-i``` flag.
+This script relies on numpy as a dependency. Install it first with ```pip3 install numpy``` Download the script. Run python3 script.py in a terminal. Follow the prompts given. If you want to pass in a text file to encrypt, use the ```-i``` flag.
 
 ## About
 This script is meant to provide a sort of encryption for simple messages. Say you want to send someone a text message without someone else being able to read it. You can use this shortcut to send a string of numbers containing the message.
