@@ -3,6 +3,8 @@ Python version of Crypt (iOS Shortcut), a OTP concept.
 
 The iOS shortcut equivalent for this script may be found on routinehub [https://routinehub.co/shortcut/10927/].
 
+Refer to example.md to see an example usage.
+
 ## Usage
 This script relies on numpy as a dependency. Install it first with ```pip3 install numpy```. Then download the script. Run ```python3 script.py``` in a terminal. Follow the prompts given. If you want to pass in a text file to encrypt, use the ```-i``` flag.
 
